@@ -1,4 +1,4 @@
-Name,Monster Type,Attribute,Level,ATK,DEF,Edition,Set Number,Passcode,Condition
+name,monster_type,attribute,level,attack,defense,edition,set_number,pass_code,condition
 "Uria, Lord of Searing Flames",Pyro / Effect,Fire,10,0,0,LE,CT03-EN005,6007213,HP
 "Raviel, Lord of Phantasms",Fiend / Effect,Dark,10,4000,4000,LE,CT03-EN003,69890967,LP
 "Hamon, Lord of Striking Thunder",Thunder / Effect,Light,10,4000,4000,LE,CT03-EN006,32491822,LP
