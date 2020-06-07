@@ -1,7 +1,7 @@
-class card:
+class Card:
 
     def __init__(self, name=None, monster_type=None, attribute=None, level=None, attack=None, defense=None, edition=None,
-                 set_number=None, pass_code=None, description=None, img_name=None, quantity=0, last_process_date=None):
+                 set_number=None, pass_code=None, condition=None, description=None, img_name=None, quantity=0, last_process_date=None):
         self._name = name
         self._monster_type = monster_type
         self._attribute = attribute
@@ -11,6 +11,7 @@ class card:
         self._edition = edition
         self._set_number = set_number
         self._pass_code = pass_code
+        self._condition = condition
         self._description = description
         self._img_name = img_name
         self._quantity = quantity
@@ -42,6 +43,9 @@ class card:
 
     def set_pass_code(self, pass_code):
         self._pass_code = pass_code
+
+    def set_condition(self, condition):
+        self._condition = condition
 
     def set_description(self, description):
         self._description = description
@@ -81,6 +85,9 @@ class card:
 
     def get_pass_code(self):
         return self._pass_code
+
+    def get_condition(self):
+        return self._condition
 
     def get_description(self):
         return self._description
