@@ -1,0 +1,354 @@
+Name,Monster Type,Attribute,Level,ATK,DEF,Edition,Set Number,Passcode,Condition
+"Uria, Lord of Searing Flames",Pyro / Effect,Fire,10,0,0,LE,CT03-EN005,6007213,HP
+"Raviel, Lord of Phantasms",Fiend / Effect,Dark,10,4000,4000,LE,CT03-EN003,69890967,LP
+"Hamon, Lord of Striking Thunder",Thunder / Effect,Light,10,4000,4000,LE,CT03-EN006,32491822,LP
+Spiral Serpant,Sea Serpent,Water,8,2900,2900,,STON-EN003,32626733,LP
+Kuriboh,Fiend / Effect,Dark,1,300,200,,SYE-019,40640057,D
+Black Luster Soldier,Warrior / Ritual,Earth,8,3000,2500,,SYE-024,,LP
+Dark Paladin,Spellcaster / Fushion / Effect,Dark,8,2900,2400,LE,DMG-001,98502113,LP
+Dark Magician,Spellcaster,Dark,7,2500,2100,,SYE-001,46986414,LP
+Cyberdark Dragon,Machine / Fusion / Effect,Dark,8,1000,1000,FE,CDIP-EN035,40418351,NM
+Dragon Master Knight,Dragon / Fusion / Effect,Light,12,5000,5000,LE,UE02-EN001,62873545,NM
+Cyber Laser Dragon,Machine / Effect,Light,7,2400,1800,FE,SOI-EN007,4162088,LP
+Proto-Cyber Dragon,Machine / Effect,Light,3,1100,600,FE,DP04-EN004,26439287,NM
+Cyber Ogre,Machine / Effect,Earth,5,1900,1200,FE,CDIP-EN004,64268668,NM
+Cyber Dragon,Machine / Effect,Light,5,2100,1600,LE,CT03-EN002,70095154,NM
+Cyber End Dragon,Machine / Fusion / Effect,Light,10,4000,2800,LE,STON-ENSE1,1546123,NM
+Cyber End Dragon,Machine / Fusion / Effect,Light,10,4000,2800,FE,DP04-EN012,1546123,NM
+Blue-Eyes White Dragon,Dragon,Light,8,3000,2500,,SDK-001,89631139,LP
+Majestic Mech - Goryu,Fairy / Effect,Light,8,2900,1800,,EOJ-EN016,95701283,LP
+Dark Catapulter,Machine / Effect,Earth,4,1000,1500,,CRV-EN013,33875961,NM
+King Dragon,Dragon / Fusion / Effect,Dark,7,2400,1100,FE,DR3-EN156,13756293,NM
+Queen's Knight,Warrior,Light,4,1500,1600,,EEN-EN004,25652259,NM
+Divine Dragon - Excelion,Dragon / Effect,Light,5,1500,900,,SOI-EN033,10032958,NM
+Winged Kuriboh,Fairy / Effect,Light,1,300,200,FE,DP1-EN005,57116033,MP
+Time Wizard,Spellcaster / Effect,Light,2,500,400,,SDJ-015,71625222,MP
+Herald of Purple Light,Fairy / Effect,Light,2,300,500,,EOJ-EN019,94689635,NM
+Pitch-Black Warwolf,Beast-Warrior / Effect,Dark,4,1600,600,FE,RDS-EN026,88975532,NM
+Elemental Hero Wildheart,Warrior / Effect,Earth,4,1500,1600,,EEN-EN008,86188410,NM
+Elemental Hero Wildheart,Warrior / Effect,Earth,4,1500,1600,,EEN-EN008,86188410,NM
+Elemental Hero Wildheart,Warrior / Effect,Earth,4,1500,1600,FE,DP03-EN003,86188410,NM
+Elemental Hero Neos,Warrior,Light,7,2500,2000,,POTD-EN001,89943723,NM
+Elemenatl Hero Mariner,Warrior / Fusion / Effect,Water,5,1400,1000,,EOJ-EN034,14225239,NM
+Elemental Hero Wild Wingman,Warrior / Fusion / Effect,Earth,8,1900,2300,FE,DP03-EN011,55615891,NM
+Elemental Hero Avian,Warrior,Wind,3,1000,1000,,DP1-EN001,21844576,NM
+Elemental Hero Burstinatrix,Warrior,Fire,3,1200,800,,DR3-EN182,58932615,NM
+Elemental Hero Shining Flare Wingman,Warrior / Fusion / Effect,Light,8,2500,2100,LE,CT03-EN004,25366484,NM
+Elemental Hero Neos,Warrior,Light,7,2500,2000,LE,CT03-EN001,89943723,NM
+Elemental Hero Neo Bubbleman,Warrior / Effect,Water,4,800,1200,,SOI-EN004,5285665,LP
+Left Arm of the Forbidden One,Spellcaster,Dark,1,200,300,,DB1-EN138,7902349,LP
+Chrysalis Dolphin,Fish / Effect,Water,2,400,600,,POTD-EN006,42682609,NM
+King's Knight,Warrior / Effect,Light,4,1600,1400,,EEN-EN006,64788463,NM
+Majestic Mech - Senku,Fairy / Effect,Light,4,1000,500,,EOJ-EN014,32918479,NM
+Gilford the Legend,Warrior / Effect,Earth,8,2600,2000,FE,SD5-EN001,69933858,LP
+Rescue Cat,Beast / Effect,Earth,4,300,100,FE,FET-EN033,14878871,MP
+Elemental Hero Sparkman,Warrior,Light,4,1600,1400,,DP1-EN004,20721928,MP
+Anteateretingant,Insect / Effect,Earth,5,2000,500,FE,SOI-EN022,13250922,NM
+Layard the Liberator,Fairy / Effect,Light,4,1400,1500,,EOJ-EN021,67468948,NM
+Barrier Statue of the Drought,Rock / Effect,Earth,4,1000,1000,FE,CDIP-EN022,19740112,NM
+Warrior Lady of the Wasteland,Warrior / Effect,Earth,4,1100,1200,FE,SD5-EN002,5438492,LP
+Herald of Green Light,Fairy / Effect,Light,2,300,500,,EOJ-EN018,21074344,NM
+Silpheed,Fairy / Effect,Wind,4,1700,700,FE,SD8-EN010,73001017,NM
+Hyonzanryu,Dragon,Light,7,2100,2800,,SKE-011,62397231,LP
+Babycerasaurus,Dinosaur / Effect,Earth,2,500,500,,POTD-EN022,36042004,NM
+Blue-Eyes Toon Dragon,Dragon / Toon,Light,8,3000,2500,,SDP-020,53183600,LP
+The Six Samurai - Zanji,Warrior / Effect,Light,4,1800,1300,,STON-EN011,95519486,NM
+Oxygeddon,Dinosaur / Effect,Wind,4,1800,800,,EEN-EN014,58071123,NM
+Destruction Cyclone,Reptile / Effect,Wind,7,2000,1500,,STON-EN028,59235795,NM
+Roc from the Valley of Haze,Winged Beast / Effect,Wind,6,2400,1400,,SD8-EN012,28143906,NM
+D.D. Warrior Lady,Warrior / Effect,Light,4,1500,1600,FE,SD5-EN011,7572887,LP
+Neo-Spacian Flare Scarab,Insect / Effect,Fire,3,500,500,,POTD-EN004,89621922,NM
+Giant Soldier of Stone,Rock,Earth,3,1300,2000,,SDP-007,13039848,NM
+Saber Beetle,Insect / Effect,Earth,6,2400,600,FE,SOI-EN023,49645921,NM
+"Winged Dragon,Guardian of the Fortress #1",Dragon,Wind,4,1400,1200,,SYE-004,87796900,LP
+Luster Dragon,Dragon,Wind,4,1900,1600,FE,SDI-EN003,11091375,LP
+Swordstalker,Warrior,Dark,6,2000,1600,,SDK-025,50005633,LP
+Despair from the Dark,Zombie / Effect,Dark,8,2800,3000,FE,SD2-EN007,71200730,LP
+Infernal Incinerator,Fiend / Effect,Fire,6,2800,1800,,EEN-EN012,23309606,NM
+Mobius the Frost Monarch,Aqua / Effect,Water,6,2400,1000,FE,SD4-EN012,4929256,LP
+Thestalos the Firestorm Monarch,Pyro / Effect,Fire,6,2400,1000,FE,SD3-EN011,26205777,NM
+Manga Ryu-Ran,Dragon / Toon,Fire,7,2200,2600,,SDP-022,38369349,NM
+Soitsu,Fairy,Wind,3,0,0,,CRV-EN002,60246171,NM
+Doitsu,Fairy / Union,Earth,4,100,200,,CRV-EN025,57062206,NM
+Aitsu,Fairy,Fire,5,100,100,,MFC-056,48202661,LP
+Storm Shooter,Winged Beast / Effect,Wind,7,2300,500,FE,CDIP-EN032,39188539,NM
+Kaiser Sea Horse,Sea Serpent / Effect,Light,4,1700,1650,,SKE-015,17444133,NM
+Chaos Command Magician,Spellcaster / Effect,Light,6,2400,1900,FE,SD6-EN008,72630549,NM
+Volcanic Hammerer,Pyro / Effect,Fire,5,2400,1500,FE,FOTB-EN013,54514594,NM
+Infernal Flame Emperor,Pyro / Effect,Fire,9,2700,1600,FE,SD3-EN001,19847532,NM
+Wroughtweiler,Machine / Effect,Earth,3,800,1200,,CRV-EN012,6480253,NM
+"Simorgh, Bird of Divinity",Winged Beast / Effect,Wind,7,2700,1000,FE,SD8-EN001,14989021,NM
+Bountiful Artemis,Fairy / Effect,Light,4,1600,1700,,EOJ-EN020,32296881,NM
+Barrier Statue of the Abyss,Fiend / Effect,Dark,4,1000,1000,FE,CDIP-EN018,84478195,NM
+Ryu-Ran,Dragon,Fire,7,2200,2600,,SDP-003,2964201,LP
+Cyber Kirin,Machine / Effect,Light,3,300,800,FE,DP04-EN005,76986005,NM
+Barrier Statue of the Torrent,Aqua / Effect,Water,4,1000,1000,FE,CDIP-EN019,10963799,NM
+Gravi-Crush Dragon,Dragon / Effect,Dark,6,2400,1200,FE,FOTB-EN030,9391354,NM
+Drillroid,Machine / Effect,Earth,4,1600,1600,,CRV-EN009,71218746,NM
+B.E.S. Covered Core,Machine / Effect,Earth,7,2500,800,,SOI-EN013,15317640,NM
+Gravi-Crush Dragon,Dragon / Effect,Dark,6,2400,1200,FE,FOTB-EN030,9391354,NM
+Lightning Punisher,Thunder / Effect,Dark,7,2600,1600,FE,CDIP-EN026,45023678,NM
+Harpie Girl,Winged Beast,Wind,2,500,500,FE,RDS-EN004,34100324,NM
+Barrier Statue of the Inferno,Pyro / Effect,Fire,4,1000,1000,FE,CDIP-EN020,47961808,NM
+Harpie Lady 1,Winged Beast / Effect,Wind,4,1300,1400,FE,SD8-EN013,91932350,NM
+Whirlwind Weasel,Beast / Effect,Wind,3,500,1500,,EOJ-EN025,93730409,NM
+Barrier Statue of the Torrent,Aqua / Effect,Water,4,1000,1000,FE,CDIP-EN019,10963799,NM
+Searchlightman,Machine / Effect,Light,3,1000,1000,,EOJ-EN010,67646312,NM
+Nanobreaker,Machine / Effect,Earth,4,1600,1800,,EEN-EN018,70948327,NM
+Etoile Cyber,Warrior / Effect,Earth,4,1200,1600,,EEN-EN016,11460577,NM
+Machine King Prototype,Machine / Effect,Earth,3,1600,1500,,SOI-EN012,89222931,NM
+Gokipon,Insect / Effect,Earth,2,800,800,,SOI-EN019,14472500,NM
+Sand Moth,Rock / Effect,Earth,4,1000,2000,,SOI-EN032,73648243,NM
+Harpie's Pet Baby Dragon,Dragon / Effect,Wind,4,1200,600,FE,SD8-EN017,6924874,NM
+Levia-Dragon - Daedalus,Sea Serpent / Effect,Water,7,2600,1500,FE,SD4-EN010,37721209,MP
+Harpie Lady 3,Winged Beast / Effect,Wind,4,1300,1400,FE,SD8-EN015,54415063,NM
+Elemental Hero Necroid Shaman,Warrior / Fusion / Effect,Dark,6,1900,1800,,EOJ-EN036,81003500,NM
+Harpie Lady 2,Winged Beast / Effect,Wind,4,1300,1400,FE,SD8-EN014,27927359,NM
+Flame Ogre,Fiend / Effect,Fire,7,2400,1700,FE,CDIP-EN014,58098303,NM
+Gearfried the Iron Knight,Warrior / Effect,Earth,4,1800,1600,FE,SD5-EN005,423705,LP
+Solar Flare Dragon,Pyro / Effect,Fire,4,1500,1000,FE,SD3-EN008,45985838,LP
+Zombyra the Dark,Warrior / Effect,Dark,4,2100,500,,SYE-022,88472456,LP
+Fox Fire,Pyro / Effect,Fire,2,300,200,FE,SD3-EN013,88753985,LP
+Gearfried the Swordmaster,Warrior / Effect,Light,7,2600,2200,FE,SD5-EN016,57046845,LP
+Mysterious Puppeteer,Warrior / Effect,Earth,4,1000,1500,,SKE-017,54098121,LP
+Birdface,Winged Beast / Effect,Wind,4,1600,1600,FE,SD8-EN009,45547649,NM
+Exiled Force,Warrior / Effect,Earth,4,1000,1000,FE,SD5-EN010,74131780,LP
+Gaia the Fierce Knight,Warrior,Earth,7,2300,2100,,SYE-007,6368038,MP
+Marauding Captain,Warrior / Effect,Earth,3,1200,400,FE,SD5-EN009,2460565,LP
+Marauding Captain,Warrior / Effect,Earth,3,1200,400,FE,SD5-EN009,2460565,LP
+Kojikocy,Warrior,Earth,4,1500,1200,,SKE-005,1184620,MP
+Guardian Statue,Rock / Effect,Earth,4,800,1400,,DR3-EN201,75209824,NM
+Golem Sentry,Rock / Effect,Earth,4,800,1800,,DR3-EN145,52323207,NM
+Poison Draw Frog,Aqua / Effect,Water,2,100,100,,CRV-EN028,56840658,NM
+Machine King Prototype,Machine / Effect,Earth,3,1600,1500,FE,SOI-EN012,89222931,NM
+Ancient Gear,Machine / Effect,Earth,2,100,800,,SOI-EN008,31557782,NM
+Rescueroid,Machine / Effect,Fire,6,1600,1800,,POTD-EN011,24311595,NM
+Snipe Hunter,Fiend / Effect,Dark,4,1500,600,FE,CDIP-EN015,84290642,NM
+D.D. Guide,Warrior / Effect,Dark,4,1400,1000,,SOI-EN014,52702748,NM
+Silent Insect,Insect / Effect,Earth,2,200,300,,SOI-EN020,40867519,NM
+Monk Fighter,Rock / Effect,Earth,3,1300,1000,,DR3-EN199,3810071,NM
+Mine Golem,Rock / Effect,Earth,3,1000,1900,,DR3-EN198,76321376,NM
+Royal Knight,Fairy / Effect,Light,3,1300,800,,EOJ-EN017,68280530,NM
+Steamroid,Machine / Effect,Earth,4,1800,1800,,CRV-EN008,44729197,NM
+Drillroid,Machine / Effect,Earth,4,1600,1600,,CRV-EN009,71218746,NM
+Bitelon,Reptile / Effect,Water,6,2400,1000,,POTD-EN023,44702857,NM
+Decoyroid,Machine / Effect,Wind,2,300,500,,POTD-EN010,25034083,NM
+Destiny Hero - Blade Master,Warrior / Effect,Dark,3,300,600,,POTD-EN015,55461064,NM
+Hero Kid,Warrior / Effect,Earth,2,300,600,,SOI-EN005,32679370,NM
+Whirlwind Prodigy,Fairy / Effect,Wind,4,1500,1600,,DR3-EN150,15090429,NM
+Reborn Zombie,Zombie / Effect,Dark,4,1000,1600,,EEN-EN009,23421244,NM
+"Mei-Kou, Master of Barriers",Spellcaster / Effect,Light,4,1700,600,FE,FOTB-EN025,47731128,NM
+Abaki,Fiend / Effect,Fire,4,1700,1100,FE,CDIP-EN013,12694768,NM
+Harpie Lady Sisters,Winged Beast / Effect,Wind,6,1950,2100,FE,SD8-EN007,12206212,NM
+Mad Sword Beast,Dinosaur / Effect,Earth,4,1400,1200,,SKE-022,76870141,NM
+Crystal Beast Amethyst Cat,Beast / Effect,Earth,3,1200,400,FE,FOTB-EN002,32933942,NM
+Crystal Beast Amethyst Cat,Beast / Effect,Earth,3,1200,400,FE,FOTB-EN002,32933942,NM
+Cyber Archfiend,Fiend / Effect,Dark,4,1000,2000,,CRV-EN019,59907935,NM
+Barrier Statue of the Torrent,Aqua / Effect,Water,4,1000,1000,FE,CDIP-EN019,10963799,NM
+Master Kyonshee,Zombie,Earth,4,1750,1000,FE,SD2-EN002,24530661,MP
+Mystic Swordsman LV2,Warrior / Effect,Earth,2,900,0,FE,SD5-EN013,47507260,LP
+Neo the Magic Swordsman,Spellcaster,Light,4,1700,1000,,SYE-012,50930991,MP
+Sage of Stillness,Spellcaster / Effect,Light,4,1400,1000,,STON-EN016,62054060,LP
+Great Angus,Beast,Fire,4,1800,600,FE,SD3-EN002,11813953,LP
+Cú Chulainn the Awakened,Warrior / Ritual / Effect,Light,4,500,1000,,STON-EN033,10789972,NM
+Pyramid Turtle,Zombie / Effect,Earth,4,1200,1400,FE,SD2-EN005,77044671,MP
+Command Knight,Warrior / Effect,Fire,4,1200,1900,FE,SD5-EN008,10375182,LP
+Frenzied Panda,Beast,Earth,4,1200,1000,FE,LOB-081,98818516,LP
+Swift Birdman Joe,Winged Beast / Effect,Wind,6,2300,1400,,EOJ-EN012,81896370,NM
+UFO Turtle,Machine / Effect,Fire,4,1400,1200,FE,SD3-EN004,60806437,LP
+Ultimate Baseball Kid,Warrior / Effect,Fire,3,500,1000,FE,SD3-EN009,67934141,LP
+Ultimate Baseball Kid,Warrior / Effect,Fire,3,500,1000,FE,SD3-EN009,67934141,LP
+Blazing Inpachi,Pyro,Fire,4,1850,0,FE,SD3-EN003,5464695,LP
+Indomitable Fighter Lei Lei,Beast-Warrior / Effect,Earth,4,2300,0,,CRV-EN023,84193492,NM
+Cyber Tutu,Warrior / Effect,Earth,3,1000,800,,EOJ-EN005,49375719,NM
+Trap Master,Warrior / Effect,Earth,3,500,1100,,SKE-018,46461247,MP
+Gyroid,Machine / Effect,Wind,3,1000,1000,,CRV-EN007,18325492,NM
+Guard Dog,Beast / Effect,Earth,3,1500,500,,EOJ-EN024,57346400,NM
+Storming Wynn,Spellcaster / Effect,Wind,4,800,1500,,EOJ-EN029,29013526,NM
+Blazing Hiita,Spellcaster / Effect,Fire,4,800,1500,,EOJ-EN028,92518817,NM
+Poison Draw Frog,Aqua / Effect,Water,2,100,100,,CRV-EN028,56840658,NM
+Cycroid,Machine,Earth,3,800,1000,,CRV-EN001,45945685,NM
+Alien Mars,Reptile / Effect,Fire,3,1000,1000,FE,CDIP-EN034,99532708,NM
+Blade Rabbit,Beast / Effect,Earth,2,400,300,,DR3-EN138,58268433,NM
+Oxygeddon,Dinosaur / Effect,Wind,4,1800,800,,EEN-EN014,58071123,NM
+Mad Lobster,Aqua,Water,3,1700,1000,,CRV-EN003,97240270,NM
+Medusa Worm,Rock / Effect,Earth,2,500,600,,DR3-EN202,2694423,NM
+Malice Ascendant,Zombie / Effect,Dark,4,700,1000,,SOI-EN030,14255590,NM
+Whirlwind Weasel,Beast / Effect,Wind,3,500,1500,,EOJ-EN025,93730409,NM
+D.D. Guide,Warrior / Effect,Dark,4,1400,1000,,SOI-EN014,52702748,NM
+W-Wing Catapult,Machine / Union,Light,4,1300,1500,,EEN-EN011,96300057,NM
+Familiar-Possessed - Wynn,Spellcaster / Effect,Wind,4,1850,1500,,EEN-EN029,31764353,NM
+Ojama Green,Beast,Light,2,0,1000,,DP2-EN002,12482652,NM
+Giant Kozaky,Fiend / Effect,Dark,4,2500,2400,,CRV-EN022,58185394,NM
+Tyranno Infinity,Dinosaur / Effect,Earth,4,?,0,,CRV-EN029,83235263,NM
+Chthonian Soldier,Warrior / Effect,Dark,4,1200,1400,,EEN-EN010,50916353,NM
+"Beiige, Vanguard of Dark World",Fiend / Effect,Dark,4,1600,1300,,EEN-EN020,33731070,NM
+Whirlwind Weasel,Beast / Effect,Wind,3,500,1500,,EOJ-EN025,93730409,NM
+D.D. Guide,Warrior / Effect,Dark,4,1400,1000,,SOI-EN014,52702748,NM
+Layard the Liberator,Fairy / Effect,Light,4,1400,1500,,EOJ-EN021,67468948,LP
+Chain Thrasher,Warrior / Effect,Wind,4,1000,600,,SOI-EN015,88190453,NM
+Cycroid,Machine,Earth,3,800,1000,,CRV-EN001,45945685,NM
+Nanobreaker,Machine / Effect,Earth,4,1600,1800,,EEN-EN018,70948327,NM
+Mystic Tomato,Plant / Effect,Dark,4,1400,1100,,SKE-021,83011277,LP
+UFO Turtle,Machine / Effect,Fire,4,1400,1200,FE,SD3-EN004,60806437,LP
+Opticlops,Fiend,Dark,4,1800,1700,,SKE-012,14531242,MP
+Skull Red Bird,Winged Beast,Wind,4,1550,1200,,SKE-010,10202894,MP
+Armed Samurai - Ben Kei,Warrior / Effect,Dark,4,500,800,FE,SD5-EN017,84430950,LP
+Lord of D.,Spellcaster / Effect,Dark,4,1200,1100,,SKE-016,17985575,LP
+Mataza the Zapper,Warrior / Effect,Dark,3,1300,800,FE,SD5-EN012,22609617,LP
+Mystic Horseman,Beast,Earth,4,1300,1550,,SKE-007,68516705,LP
+Battle Ox,Beast-Warrior,Earth,4,1700,1000,,SKE-002,5053103,MP
+The Six Samurai - Yariza,Warrior / Effect,Earth,3,1000,500,,STON-EN009,69025477,MP
+Celtic Guardian,Warrior,Earth,4,1400,1200,,SYE-008,91152256,MP
+Destiny Hero - Captain Tenacious,Warrior / Effect,Dark,3,800,800,FE,DP05-EN002,77608643,LP
+Witch of the Black Forest,Spellcaster / Effect,Dark,4,1100,1200,,SKE-020,78010363,LP
+Mystic Clown,Fiend,Dark,4,1500,1000,,SYE-011,47060154,MP
+Gemini Elf,Spellcaster,Earth,4,1900,900,,DB2-EN094,69140098,NM
+Gearfried the Iron Knight,Warrior / Effect,Earth,4,1800,1600,FE,SD5-EN005,423705,LP
+Dark Dust Spirit,Zombie / Spirit,Earth,6,2200,1800,FE,SD2-EN004,89111398,LP
+Uraby,Dinosaur,Earth,4,1500,800,,SKE-006,1784619,LP
+Hane-Hane,Beast / Effect,Earth,2,450,500,,SKE-019,7089711,LP
+Stray Asmodian,Fiend / Effect,Fire,3,1300,1700,FE,CDIP-EN012,86209650,LP
+7 Colored Fish,Fish,Water,4,1800,800,FE,SD4-EN002,23771716,NM
+Lady Ninja Yae,Warrior / Effect,Wind,3,1100,200,FE,SD8-EN011,82005435,NM
+Flying Kamakiri #1,Insect / Effect,Wind,4,1400,900,FE,SD8-EN006,84834865,NM
+Harpie Girl,Winged Beast,Wind,2,500,500,FE,SD8-EN004,34100324,NM
+Warrior Dai Grepher,Warrior,Earth,4,1700,1600,,SYE-014,75953262,LP
+Man Beast of Ares,Beast-Warrior / Effect,Earth,3,500,500,FE,CDIP-EN030,71395725,NM
+Goblin Attack Force,Warrior / Effect,Earth,4,2300,0,FE,SD5-EN004,78658564,LP
+Swit Gaia the Fierce Knight,Warrior / Effect,Dark,7,2300,2100,FE,SD5-EN006,16589042,NM
+Lord of D.,Spellcaster / Effect,Dark,4,1200,1100,,SKE-016,17985575,LP
+Cyber Tutu,Warrior / Effect,Earth,3,1000,800,FE,EOJ-EN005,49375719,NM
+Kangaroo Champ,Beast / Effect,Earth,4,800,700,FE,FET-EN016,95789089,LP
+Gaia Soul the Combustible Collective,Pyro / Effect,Fire,4,2000,0,FE,SD3-EN012,51355346,LP
+Inferno,Pyro / Effect,Fire,4,1100,1900,FE,SD3-EN006,74823665,LP
+Tyranno Infinity,Dinosaur / Effect,Earth,4,?,0,,CRV-EN029,83235263,NM
+Jerry Beans Man,Plant,Earth,3,1750,0,,CRV-EN004,23635815,NM
+Destiny Hero - Captain Tenacious,Warrior / Effect,Dark,3,800,800,,EOJ-EN002,77608643,NM
+Avalanching Aussa,Spellcaster / Effect,Earth,4,800,1500,,EOJ-EN026,29139104,NM
+Regenerating Mummy,Zombie / Effect,Dark,4,1800,1500,FE,SD2-EN012,70821187,LP
+Vampire Lady,Zombie / Effect,Dark,4,1550,1550,FE,SD2-EN010,26495087,LP
+Vampire Lord,Zombie / Effect,Dark,5,2000,1500,FE,SD2-EN003,53839837,LP
+Blackland Fire Dragon,Dragon,Dark,4,1500,800,,DB2-EN036,87564352,MP
+Destiny Hero - Dasher,Warrior / Effect,Dark,6,2100,1000,FE,DP05-EN010,81866673,NM
+Dark Blade,Warrior,Dark,4,1800,1500,FE,SD5-EN003,11321183,LP
+Marionette Mite,Insect / Effect,Dark,3,1000,1000,,STON-EN023,87514539,NM
+Double Coston,Zombie / Effect,Dark,4,1700,1650,FE,SD2-EN011,44436472,LP
+Doitsu,Fairy / Union,Earth,4,100,200,,SRV-EN025,57062206,NM
+Destiny Hero - Diamond Dude,Warrior / Effect,Dark,4,1400,1600,FE,DP05-EN003,13093792,NM
+Parasitic Ticky,Insect / Effect,Earth,1,?,?,FE,SOI-EN018,87978805,NM
+Cyber Tutu,Warrior / Effect,Earth,3,1000,800,,EOJ-EN005,49375719,NM
+Indomitable Fighter Lei Lei,Beast-Warrior / Effect,Earth,4,2300,0,,CRV-EN023,84173492,NM
+Ebon Magician Curran,Spellcaster / Effect,Dark,2,1200,0,,CRV-EN031,46128076,NM
+Jerry Beans Man,Plant,Earth,3,1750,0,,CRV-EN004,23635815,NM
+Protective Soul Ailin,Fairy / Union,Light,1,0,0,,CRV-EN024,11678191,NM
+W-Wing Catapult,Machine / Union,Light,4,1300,1500,,EEN-EN011,96300057,NM
+Decoyroid,Machine / Effect,Wind,2,300,500,,POTD-EN010,25034083,NM
+Tenkabito Shien,Pyro / Effect,Fire,4,1500,1000,,SOI-EN017,41589166,NM
+Ebon Magician Curran,Spellcaster / Effect,Dark,2,1200,0,,CRV-EN031,46128076,NM
+La Jinn the Mystical Genie of the Lamp,Fiend,Dark,4,1800,1000,,SKE-009,97590747,LP
+Koumori Dragon,Dragon,Dark,4,1500,1200,,SKE-003,67724379,MP
+Paladin of White Dragon,Dragon / Ritual / Effect,Light,4,1900,1200,,SKE-024,73398797,LP
+Radiant Spirit,Reptile / Effect,Light,7,2000,1500,,STON-EN029,12624008,LP
+Mystical Elf,Spellcaster,Light,4,800,2000,,SYE-002,15025844,LP
+Rogue Doll,Spellcaster,Light,4,1600,1000,,SKE-004,91939608,MP
+Armed Dragon LV3,Dragon / Effect,Wind,3,1200,900,FE,SD1-EN005,980973,MP
+The Dragon Dwelling in the Cave,Dragon,Wind,4,1300,2000,,SKE-013,93346024,LP
+Armed Dragon LV5,Dragon / Effect,Wind,5,2400,1700,FE,SD1-EN006,46384672,MP
+Spirit Ryu,Dragon / Effect,Wind,4,1000,1000,,SKE-023,67957315,MP
+Twin-Headed Behemoth,Dragon / Effect,Wind,3,1500,1200,FE,SD1-EN004,43586926,MP
+Mother Grizzly,Beast-Warrior / Effect,Water,4,1400,1000,FE,SD4-EN005,57839750,NM
+Maiden of the Aqua,Aqua / Effect,Water,4,700,2000,,DB2-EN211,17214465,LP
+Great White,Fish,Water,4,1600,800,,SYE-009,13429800,LP
+Fenrir,Beast / Effect,Water,4,1400,1200,FE,SD4-EN008,218704,LP
+Little Chimera,Beast / Effect,Fire,2,600,550,FE,SD3-EN005,68658728,LP
+Giant Rat,Beast / Effect,Earth,4,1400,1450,,SYE-020,97017120,LP
+Beaver Warrior,Beast-Warrior,Earth,4,1200,1500,,SYE-006,32452818,LP
+Mystic Swordsman LV4,Warrior / Effect,Earth,4,1900,1600,FE,SD5-EN014,74591968,LP
+Obnoxious Celtic Guard,Warrior / Effect,Earth,4,1400,1200,FE,SD5-EN007,52077741,LP
+Mad Sword Beast,Dinosaur / Effect,Earth,4,1400,1200,,SKE-022,79870141,LP
+Indomitable Fighter Lei Lei,Beast-Warrior / Effect,Earth,4,2300,0,,CRV-EN023,84173492,NM
+Sonic Bird,Winged Beast / Effect,Wind,4,1400,1000,,SYE-021,57617178,LP
+Masked Dragon,Dragon / Effect,Fire,3,1400,1100,FE,SD1-EN009,39191307,LP
+Alien Mars,Reptile / Effect,Fire,3,1000,1000,FE,CDIP-EN034,99532708,NM
+Raging Flame Sprite,Pyro / Effect,Fire,3,100,200,FE,SD3-EN010,90810762,LP
+D.3.S. Frog,Aqua / Fusion / Effect,Water,8,2500,2000,FE,SOI-EN036,9910360,NM
+Mad Lobster,Aqua,Water,3,1700,1000,,CRV-EN003,97240270,NM
+Bladefly,Insect / Effect,Wind,2,600,700,FE,SD8-EN008,28470714,NM
+Mechanical Hound,Machine / Effect,Earth,7,2800,1500,,CRV-EN018,22512237,NM
+Des Frog,Aqua / Effect,Water,5,1900,0,,CRV-EN026,84451804,NM
+"Scarr, Scout of Dark World",Fiend / Effect,Dark,2,500,500,,EEN-EN025,5498296,NM
+Cybernetic Cyclopean,Beast-Warrior / Effect,Earth,4,1400,200,,CRV-EN017,96428622,NM
+Bitelon,Reptile / Effect,Water,6,2400,1000,,POTD-EN023,44702857,NM
+Abaki,Fiend / Effect,Fire,4,1700,1100,FE,CDIP-EN013,12694768,NM
+Malice Ascendant,Zombie / Effect,Dark,4,700,1000,FE,SOI-EN030,14255590,NM
+Hydrogeddon,Dinosaur / Effect,Water,4,1600,1000,,EEN-EN013,22587018,NM
+Ancient Gear Cannon,Machine / Effect,Earth,2,500,500,,SOI-EN009,80045583,NM
+V-Tiger Jet,Machine,Light,4,1600,1800,,EEN-EN002,51638941,NM
+Headless Knight,Fiend,Light,4,1450,1700,,DB1-EN248,5434080,LP
+Moisture Creature,Fairy / Effect,Light,9,2800,2900,,DB2-EN214,75285069,LP
+Steam Gyroid,Machine / Fusion,Earth,6,2200,1600,,CRV-EN033,5368615,NM
+Steamroid,Machine / Effect,Earth,4,1800,1800,,CRV-EN008,44729197,NM
+Gyroid,Machine / Effect,Wind,3,1000,1000,,CRV-EN007,18325492,NM
+Flower Wolf,Beast / Fusion,Earth,5,1800,1400,,LOB-107,95952802,HP
+W-Wing Catapult,Machine / Union,Light,4,1300,1500,,DP2-EN008,96300057,NM
+Familiar-Possessed - Eria,Spellcaster / Effect,Water,4,1850,1500,,EEN-EN027,68881649,NM
+Cyber Tutu,Warrior / Effect,Earth,3,1000,800,,EOJ-EN005,49375719,NM
+Volcanic Hammerer,Pyro / Effect,Fire,5,2400,1500,FE,FOTB-EN013,54514594,NM
+Sanwitch,Spellcaster / Fusion,Dark,6,2100,1800,,DR3-EN036,53539634,NM
+Dekoichi the Battlechanted Locomotive,Machine / Effect,Dark,4,1400,1000,FE,RDS-EN032,87621407,NM
+Alien Grey,Reptile / Effect,Light,2,300,800,,POTD-EN024,62437709,NM
+Herald of Green Light,Fairy / Effect,Light,2,300,500,FE,EOJ-EN018,21074344,NM
+Ninja Grandmaster Sasuke,Warrior / Effect,Light,4,1800,1000,FE,SD5-EN015,4041838,LP
+Sonic Duck,Winged Beast,Wind,3,1700,700,FE,SD8-EN003,84696266,LP
+Cú Chulainn the Awakened,Warrior / Ritual / Effect,Light,4,500,1000,,STON-EN033,10789972,NM
+Dark Blade,Warrior,Dark,4,1800,1500,,SYE-015,11321183,LP
+Swift Birdman Joe,Winged Beast / Effect,Wind,6,2300,1400,FE,SD8-EN016,81896370,NM
+Sonic Shooter,Winged Beast / Effect,Wind,4,1300,600,FE,SD8-EN002,40384720,NM
+Slate Warrior,Fiend / Effect,Wind,4,1900,400,FE,SD8-EN005,78636495,NM
+Giant Kozaky,Fiend / Effect,Dark,4,2500,2400,,CRV-EN022,58185394,NM
+Ebon Magician Curran,Spellcaster / Effect,Dark,2,1200,0,,CRV-EN031,46128076,LP
+Cyroid,Machine,Earth,3,800,1000,,CRV-EN001,45945685,NM
+Guard Dog,Beast / Effect,Earth,3,1500,500,,EOJ-EN024,57346400,NM
+Poison Draw Frog,Aqua / Effect,Water,2,100,100,,CRV-EN028,56840658,NM
+Patroid,Machine / Effect,Earth,4,1200,1200,,CRV-EN006,71930383,NM
+Tenkabito Shien,Pyro / Effect,Fire,4,1500,1000,,SOI-EN017,41589166,NM
+Harpie Lady 1,Winged Beast / Effect,Wind,4,1300,1400,,DR3-EN077,91932350,NM
+Blade Skater,Warrior,Earth,4,1400,1500,,EEN-EN003,97023549,NM
+"Beiige, Vanguard of Dark World",Fiend / Effect,Dark,4,1600,1300,,EEN-EN020,33731070,NM
+Masked Dragon,Dragon / Effect,Fire,3,1400,1100,,DR3-EN026,39191307,NM
+Tenkabito Shien,Pyro / Effect,Fire,4,1500,1000,,SOI-EN017,41589166,NM
+D.D. Guide,Warrior / Effect,Dark,4,1400,1000,,SOI-EN014,52702748,NM
+Familiar-Possesed - Aussa,Spellcaster / Effect,Earth,4,1850,1500,,EEN-EN026,31887905,NM
+Abaki,Fiend / Effect,Fire,4,1700,1100,FE,CDIP-EN013,12694768,NM
+Kangaroo Champ,Beast / Effect,Earth,4,800,700,,DR3-EN136,95789089,NM
+Familiar-Possesed - Wynn,Spellcaster / Effect,Wind,4,1850,1500,,EEN-EN029,31764353,NM
+Masked Dragon,Dragon / Effect,Fire,3,1400,1100,,DR3-EN026,39191307,NM
+Destiny Hero - Captain Tenacious,Warrior / Effect,Dark,3,800,800,,EOJ-EN002,77608643,NM
+Cyber Gymnast,Warrior / Effect,Earth,4,800,1800,,EOJ-EN006,76763417,NM
+Saber Beetle,Insect / Effect,Earth,6,2400,600,,SOI-EN023,49645921,NM
+Kangaroo Champ,Beast / Effect,Earth,4,800,700,,DR3-EN136,95789089,NM
+Patroid,Machine / Effect,Earth,4,1200,1200,,CRV-EN006,71930383,NM
+Jerry Beans Man,Plant,Earth,3,1750,0,,CRV-EN004,23635815,NM
+Royal Knight,Fairy / Effect,Light,3,1300,800,,EOJ-EN017,68280530,NM
+Gokipon,Insect / Effect,Earth,2,800,800,,SOI-EN019,14472500,NM
+Grass Phantom,Plant / Effect,Water,3,1000,1000,,SOI-EN031,41249545,NM
+Jerry Beans Man,Plant,Earth,3,1750,0,,CRV-EN004,23635815,NM
+Steam Gyroid,Machine / Fusion,Earth,6,2200,1600,,CRV-EN033,5368615,NM
+Drillroid,Machine / Effect,Earth,4,1600,1600,,CRV-EN009,71218746,NM
+Winged Minion,Fiend / Effect,Dark,2,700,700,,LOD-005,89258225,MP
+Spirit Reaper,Zombie / Effect,Dark,3,300,200,FE,SD2-EN006,23205979,LP
+Ryu Kokki,Zombie / Effect,Dark,6,2400,2000,FE,SD2-EN008,57281778,NM
+Ryu-Kishin Powered,Fiend,Dark,4,1600,1200,,SKE-008,24611934,HP
+Solar Flare Dragon,Pyro / Effect,Fire,4,1500,1000,FE,SD3-EN008,45985838,LP
+Two-Headed King Rex,Dinosaur,Earth,4,1600,1200,,DB2-EN096,94119974,NM
+Creeping Doom Manta,Fish / Effect,Water,3,1300,1200,FE,SD4-EN014,52571838,NM
+Molten Zombie,Pyro / Effect,Fire,4,1600,400,FE,SD3-EN007,4732017,NM
+Guard Dog,Beast / Effect,Earth,3,1500,500,,EOJ-EN024,57346400,NM
+Etoile Cyber,Warrior / Effect,Earth,4,1200,1600,,EEN-EN016,11460577,NM
+Woodborg Inpachi,Machine,Fire,5,500,2500,FE,RDS-EN001,35322812,NM
+Y-Dragon Head,Machine / Union,Light,4,1500,1600,,DP2-EN006,65622692,NM
+Homunculus the Alchemic Being,Plant / Effect,Light,4,1800,1600,FE,RD5-EN034,40410110,NM
+The Creator Incarnate,Warrior / Effect,Light,4,1600,1500,FE,RD5-EN006,97093037,NM
+Sangan,Fiend / Effect,Dark,3,1000,600,,SYE-018,26202165,LP
+Ambulance Rescueroid,Machine / Fusion / Effect,Fire,6,2300,1800,,POTD-EN035,98927491,NM
