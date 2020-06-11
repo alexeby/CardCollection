@@ -1,7 +1,44 @@
+class SetInfo:
+
+    def __init__(self):
+        self._set_number = None
+        self._edition = None
+        self._rarity = None
+        self._condition = None
+        self._quantity = None
+
+    def set_set_number(self, set_number):
+        self._set_number = set_number
+
+    def set_edition(self, edition):
+        self._edition = edition
+
+    def set_rarity(self, rarity):
+        self._rarity = rarity
+
+    def set_condition(self, condition):
+        self._condition = condition
+
+    def set_quantity(self, quantity):
+        self._quantity = quantity
+
+    def get_set_number(self):
+        return self._set_number
+
+    def get_edition(self):
+        return self._edition
+
+    def get_condition(self):
+        return self._condition
+
+    def get_quantity(self):
+        return self._quantity
+
+
 class Card:
 
-    def __init__(self, name=None, monster_type=None, attribute=None, level=None, attack=None, defense=None, edition=None,
-                 set_number=None, pass_code=None, condition=None, description=None, img_name=None, quantity=0, last_process_date=None, set_info=None):
+    def __init__(self, name=None, monster_type=None, attribute=None, level=None, attack=None, defense=None,
+                 pass_code=None, description=None, img_name=None, last_process_date=None, set_info=None):
         self._name = name
         self._monster_type = monster_type
         self._attribute = attribute
@@ -12,7 +49,7 @@ class Card:
         self._description = description
         self._img_name = img_name
         self._last_process_date = last_process_date
-        self._set_info = [SetInfo]
+        self._set_info = set_info if set_info is not None else []
 
     def set_name(self, name):
         self._name = name
@@ -80,38 +117,6 @@ class Card:
     def get_set_info(self):
         return self._set_info
 
-
-class SetInfo:
-    def __init__(self):
-        self._set_number = None
-        self._edition = None
-        self._rarity = None
-        self._condition = None
-        self._quantity = None
-
-    def set_set_number(self, set_number):
-        self._set_number = set_number
-
-    def set_edition(self, edition):
-        self._edition = edition
-
-    def set_rarity(self, rarity):
-        self._rarity = rarity
-
-    def set_condition(self, condition):
-        self._condition = condition
-
-    def set_quantity(self, quantity):
-        self._quantity = quantity
-
-    def get_set_number(self):
-        return self._set_number
-
-    def get_edition(self):
-        return self._edition
-
-    def get_condition(self):
-        return self._condition
-
-    def get_quantity(self):
-        return self._quantity
+    # TODO append set info method
+    def append_set_info(self, new_set_info: SetInfo):
+        self._set_info.append(new_set_info)
