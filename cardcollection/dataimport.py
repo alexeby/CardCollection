@@ -2,6 +2,7 @@ import csv
 import logging
 
 from cardcollection.card import *
+from typing import List
 
 logger = logging.getLogger(__name__)
 
@@ -63,26 +64,46 @@ class DataImport:
         if indexes['set_number'] is not None: set_info.set_set_number(card_info[indexes['set_number']])
         if indexes['edition'] is not None: set_info.set_edition(card_info[indexes['edition']])
         if indexes['condition'] is not None: set_info.set_condition(card_info[indexes['condition']])
-        card_object.set_set_info(set_info)
+        card_object.append_set_info(set_info)
 
         return card_object
 
-    def extract_data(self):
+    def index_of_existing_data(self, new_card: Card, card_list: List[Card]):
+        index = 0
+        for existing_card in card_list:
+            if new_card.get_name() == existing_card.get_name():
+                return index
+            index = index + 1
+
+        return None
+
+
+    def categorize_data(self, csv_reader):
         card_list = []
         indexes = []
+        line_count = 0
 
+        for card_info in csv_reader:
+            if line_count == 0:
+                indexes = self.init_indexes(card_info)
+            # TODO throw and log error. Name must be specified for card
+            # TODO throw and log error. File format does not match expected format (name,monster_type,attribute,level,attack,defense,edition,set_number,pass_code,condition,description)
+            else:
+                card_object = self.define_card_object(indexes, card_info)
+                index_of_existing = self.index_of_existing_data(card_object, card_list)
+                if index_of_existing is None:
+                    card_list.append(card_object)
+                else:
+                    # TODO don't add duplicate sets
+                    existing_card_object = card_list[index_of_existing]
+                    existing_card_object.append_set_info(card_object.get_set_info()[0]) # TODO potential error check here
+                    card_list[index_of_existing] = existing_card_object
+            line_count = line_count + 1
+
+        return card_list
+
+    def extract_csv_data(self):
         # TODO Add config with datafile import location
         with open('C:/Users/ebyy2/PycharmProjects/CardCollection/data/Yugioh_Catalog_Monster_Full.csv', mode='r') as csv_file:
             csv_reader = csv.reader(csv_file)
-            line_count = 0
-
-            for card_info in csv_reader:
-                if line_count == 0:
-                    indexes = self.init_indexes(card_info)
-                # TODO throw and log error. Name must be specified for card
-                # TODO throw and log error. File format does not match expected format (name,monster_type,attribute,level,attack,defense,edition,set_number,pass_code,condition,description)
-                else:
-                    card_object = self.define_card_object(indexes, card_info)
-                    card_list.append(card_object)
-                line_count = line_count + 1
-        pass
+            self.categorize_data(csv_reader)
