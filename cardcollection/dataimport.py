@@ -46,7 +46,8 @@ class DataImport:
 
         return index_dict
 
-    def define_card_object(self, indexes: dict, card_info: list):
+    @staticmethod
+    def define_card_object(indexes: dict, card_info: list):
         card_object = Card()
 
         # Align card object information
@@ -63,12 +64,23 @@ class DataImport:
         set_info = SetInfo()
         if indexes['set_number'] is not None: set_info.set_set_number(card_info[indexes['set_number']])
         if indexes['edition'] is not None: set_info.set_edition(card_info[indexes['edition']])
-        if indexes['condition'] is not None: set_info.set_condition(card_info[indexes['condition']])
-        card_object.append_set_info(set_info)
 
+        # Conditions are handled a bit differently. They are stored in dictionary and are used to determine quantity
+        new_condition = card_info[indexes['condition']]
+        conditions = DataImport.handle_conditions(set_info.get_conditions(), new_condition)
+        if indexes['condition'] is not None: set_info.set_conditions(conditions)
+
+        card_object.append_set_info(set_info)
         return card_object
 
-    def index_of_existing_data(self, new_card: Card, card_list: List[Card]):
+    @staticmethod
+    def get_key_from_value(d: dict, v):
+        for key, value in d.items():
+            if value == v:
+                return key
+
+    @staticmethod
+    def index_of_existing_data(new_card: Card, card_list: List[Card]):
         index = 0
         for existing_card in card_list:
             if new_card.get_name() == existing_card.get_name():
@@ -77,6 +89,47 @@ class DataImport:
 
         return None
 
+    @staticmethod
+    def handle_conditions(existing_conditions: dict, new_condition: str):
+        existing_conditions[new_condition] = existing_conditions[new_condition] + 1
+        return existing_conditions
+
+    @staticmethod
+    def do_sets_match(set1: SetInfo, set2: SetInfo):
+        match = False
+        if set1.get_set_number() == set2.get_set_number() \
+                and set1.get_edition() == set2.get_conditions():
+            match = True
+
+        return match
+
+    @staticmethod
+    def handle_set_info(new_card: Card, existing_card: Card):
+        new_card_set = SetInfo()
+        try:
+            new_card_set = new_card.get_set_info()[0]
+        except IndexError:
+            logger.error('Error occurred with card: ' + new_card.get_name(), IndexError)
+
+        if new_card_set == SetInfo():
+            return None
+
+        no_match_found = True
+        existing_sets = existing_card.get_set_info()
+        existing_set: SetInfo
+        for existing_set in existing_sets:
+            if DataImport.do_sets_match(existing_set, new_card_set):
+                no_match_found = False
+                new_condition: str = DataImport.get_key_from_value(new_card_set.get_conditions(), 1)
+                updated_conditions = DataImport.handle_conditions(existing_set.get_conditions(), new_condition)
+                existing_set.set_conditions(updated_conditions)
+                break
+
+        if no_match_found:
+            existing_sets.append(new_card_set)
+
+        existing_card.set_set_info(existing_sets)
+        return existing_card
 
     def categorize_data(self, csv_reader):
         card_list = []
@@ -94,10 +147,14 @@ class DataImport:
                 if index_of_existing is None:
                     card_list.append(card_object)
                 else:
-                    # TODO don't add duplicate sets
                     existing_card_object = card_list[index_of_existing]
-                    existing_card_object.append_set_info(card_object.get_set_info()[0]) # TODO potential error check here
-                    card_list[index_of_existing] = existing_card_object
+                    try:
+                        # Don't add duplicate sets
+                        existing_card_object = self.handle_set_info(card_object, existing_card_object)
+                        card_list[index_of_existing] = existing_card_object
+                    except IndexError:
+                        logger.error('Error occurred with card: ' + card_object.get_name(), IndexError)
+
             line_count = line_count + 1
 
         return card_list
