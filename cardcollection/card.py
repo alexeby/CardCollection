@@ -4,8 +4,12 @@ class SetInfo:
         self._set_number = None
         self._edition = None
         self._rarity = None
-        self._condition = None
-        self._quantity = None
+        self._price = None
+        self._conditions = {'NM': 0,  # Near Mint: quantity
+                            'LP': 0,  # Lightly Played: quantity
+                            'MP': 0,  # Moderately Played: quantity
+                            'HP': 0,  # Heavily Played: quantity
+                            'D': 0}   # Damaged: quantity
 
     def set_set_number(self, set_number):
         self._set_number = set_number
@@ -16,11 +20,11 @@ class SetInfo:
     def set_rarity(self, rarity):
         self._rarity = rarity
 
-    def set_condition(self, condition):
-        self._condition = condition
+    def set_price(self, price):
+        self._price = price
 
-    def set_quantity(self, quantity):
-        self._quantity = quantity
+    def set_conditions(self, condition):
+        self._conditions = condition
 
     def get_set_number(self):
         return self._set_number
@@ -28,11 +32,14 @@ class SetInfo:
     def get_edition(self):
         return self._edition
 
-    def get_condition(self):
-        return self._condition
+    def get_conditions(self):
+        return self._conditions
 
-    def get_quantity(self):
-        return self._quantity
+    def get_rarity(self):
+        return self._rarity
+
+    def get_price(self):
+        return self._price
 
 
 class Card:
@@ -117,6 +124,6 @@ class Card:
     def get_set_info(self):
         return self._set_info
 
-    # TODO append set info method
+    # append set info method
     def append_set_info(self, new_set_info: SetInfo):
         self._set_info.append(new_set_info)
