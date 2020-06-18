@@ -1,0 +1,24 @@
+NoSQL (MongoDB) Data Structure
+
+Card:
+    name
+    monster_type
+    attribute
+    level
+    attack
+    defense
+    pass_code
+    description
+    img_name
+    last_process_date
+    set_info[]:
+        set_number
+        edition
+        rarity
+        price
+        condition:
+            NM: quantity
+            LP: quantity
+            MP: quantity
+            HP: quantity
+            D : quantity
