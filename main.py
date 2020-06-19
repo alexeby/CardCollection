@@ -2,10 +2,11 @@ import logging
 import os
 import configparser
 from logging import config
+from cardcollection.dataimport import DataImport
 
 # Initialize the log configuration file
 logging.config.fileConfig(fname='init/log.ini', disable_existing_loggers=False)
-logger = logging.getLogger('testing')
+logger = logging.getLogger(__name__)
 logger.info('Starting image download process')
 
 # Initialize configuration file
