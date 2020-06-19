@@ -87,8 +87,6 @@ class DataImport:
                 return index
             index = index + 1
 
-        return None
-
     @staticmethod
     def handle_conditions(existing_conditions: dict, new_condition: str):
         existing_conditions[new_condition] = existing_conditions[new_condition] + 1
