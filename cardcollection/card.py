@@ -1,15 +1,22 @@
 class SetInfo:
 
-    def __init__(self):
-        self._set_number = None
-        self._edition = None
-        self._rarity = None
-        self._price = None
-        self._conditions = {'NM': 0,  # Near Mint: quantity
-                            'LP': 0,  # Lightly Played: quantity
-                            'MP': 0,  # Moderately Played: quantity
-                            'HP': 0,  # Heavily Played: quantity
-                            'D': 0}   # Damaged: quantity
+    def __init__(self, set_number=None, edition=None, rarity=None, price=None, conditions=None):
+        if conditions is None:
+            conditions = {'NM': 0,  # Near Mint: quantity
+                          'LP': 0,  # Lightly Played: quantity
+                          'MP': 0,  # Moderately Played: quantity
+                          'HP': 0,  # Heavily Played: quantity
+                          'D': 0}   # Damaged: quantity
+        self._set_number = set_number
+        self._edition = edition
+        self._rarity = rarity
+        self._price = price
+        self._conditions = conditions
+
+    def __eq__(self, other):
+        if self.__class__ == other.__class__ and self.__dict__ == other.__dict__:
+            return True
+        return False
 
     def set_set_number(self, set_number):
         self._set_number = set_number
@@ -57,6 +64,11 @@ class Card:
         self._img_name = img_name
         self._last_process_date = last_process_date
         self._set_info = set_info if set_info is not None else []
+
+    def __eq__(self, other):
+        if self.__class__ == other.__class__ and self.__dict__ == other.__dict__:
+            return True
+        return False
 
     def set_name(self, name):
         self._name = name
