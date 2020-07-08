@@ -7,7 +7,8 @@ from typing import List
 logger = logging.getLogger(__name__)
 
 
-# Data import from CSV with format of name,monster_type,attribute,level,attack,defense,edition,set_number,pass_code,condition,description
+# Data import from CSV with format of 'name,monster_type,attribute,level,attack,
+# defense,edition,set_number,pass_code,condition,description'
 class DataImport:
 
     def __init__(self, file_location=None):
@@ -96,7 +97,7 @@ class DataImport:
     def do_sets_match(set1: SetInfo, set2: SetInfo):
         match = False
         if set1.get_set_number() == set2.get_set_number() \
-                and set1.get_edition() == set2.get_conditions():
+                and set1.get_edition() == set2.get_edition():
             match = True
 
         return match
