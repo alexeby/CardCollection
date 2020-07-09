@@ -1,21 +1,29 @@
 import csv
 import logging
-
-from cardcollection.card import *
+from cardcollection.card import Card, SetInfo
 from typing import List
 
 logger = logging.getLogger(__name__)
 
 
-# Data import from CSV with format of 'name,monster_type,attribute,level,attack,
-# defense,edition,set_number,pass_code,condition,description'
 class DataImport:
+    """Used to import data from csv file. CSV columns should be any of the following values: name, monster_type,
+    attribute, level, attack, defense, edition, set_number, pass_code, condition, description. The order of these
+    columns is not a concern as they will be automatically indexed and put in a dictionary.
+    """
 
     def __init__(self, file_location=None):
         self._file_location = file_location
 
     @staticmethod
     def init_indexes(header):
+        """Initializes the indexes of the import file based on the headers of columns.
+
+        :param header: the header row of the import file.
+        :type header: list
+        :return: dictionary of indexes for the data within the import file.
+        :rtype: dict
+        """
         iteration = 0
         index_dict = {'name': None,
                       'monster_type': None,
@@ -43,12 +51,23 @@ class DataImport:
             elif column == 'edition': index_dict['edition'] = iteration
             elif column == 'rarity': index_dict['rarity'] = iteration
             elif column == 'condition': index_dict['condition'] = iteration
+            else:
+                logger.warning(column + ' is not an expected attribute for card import data')
             iteration = iteration + 1
 
         return index_dict
 
     @staticmethod
     def define_card_object(indexes: dict, card_info: list):
+        """Creates card object and sets card attributes from imported information.
+
+        :param indexes: indexes of imported data
+        :type indexes: dict
+        :param card_info: imported card data in list format
+        :type card_info: list
+        :return: newly created card object
+        :rtype: Card
+        """
         card_object = Card()
 
         # Align card object information
@@ -76,12 +95,30 @@ class DataImport:
 
     @staticmethod
     def get_key_from_value(d: dict, v):
+        """Gets the key from the value of dictionary.
+
+        :param d: dictionary to retrieve key from value
+        :type d: dict
+        :param v: value to use to retrieve key
+        :return: key of the passed value
+        :rtype: type of key in dictionary
+        """
         for key, value in d.items():
             if value == v:
                 return key
 
     @staticmethod
     def index_of_existing_data(new_card: Card, card_list: List[Card]):
+        """Searches for existing cards that may have already been imported. This eliminates the possibility of
+        duplicate cards being imported.
+
+        :param new_card: card being imported
+        :type new_card: Card
+        :param card_list: existing cards already imported
+        :type card_list: List[Card]
+        :return: index of existing card. If their are none, returns None
+        :rtype: int
+        """
         index = 0
         for existing_card in card_list:
             if new_card.get_name() == existing_card.get_name():
@@ -90,11 +127,34 @@ class DataImport:
 
     @staticmethod
     def handle_conditions(existing_conditions: dict, new_condition: str):
-        existing_conditions[new_condition] = existing_conditions[new_condition] + 1
+        """For cards of the same set that have already been imported, increases the number of that importing condition
+        by 1.
+
+        :param existing_conditions: dictionary of the existing condition for that set
+        :type existing_conditions: dict
+        :param new_condition: condition to have 1 added to
+        :type new_condition: str
+        :return: the updated conditions for that set
+        :rtype: dict
+        """
+        try:
+            existing_conditions[new_condition] = existing_conditions[new_condition] + 1
+        except KeyError:
+            logger.error(KeyError)
+
         return existing_conditions
 
     @staticmethod
     def do_sets_match(set1: SetInfo, set2: SetInfo):
+        """Verifies if the sets of 2 of the same cards match. This is based on the cards set number and edition.
+
+        :param set1: set1
+        :type set1: SetInfo
+        :param set2: set2
+        :type set2: SetInfo
+        :return: returns True if card sets match, else returns false.
+        :rtype: bool
+        """
         match = False
         if set1.get_set_number() == set2.get_set_number() \
                 and set1.get_edition() == set2.get_edition():
@@ -104,6 +164,15 @@ class DataImport:
 
     @staticmethod
     def handle_set_info(new_card: Card, existing_card: Card):
+        """For matching cards, merges the set data from the newly imported card to that of the existing card. If the
+        sets do not match, a new set will be added to the card object. If the sets do match, the sets conditions will
+        be merged.
+
+        :param new_card: the card being imported
+        :param existing_card: the card that has already been imported
+        :return: updated card with adjusted set data
+        :rtype: Card
+        """
         new_card_set = SetInfo()
         try:
             new_card_set = new_card.get_set_info()[0]
@@ -131,15 +200,23 @@ class DataImport:
         return existing_card
 
     def categorize_data(self, csv_reader):
-        card_list = []
-        indexes = []
-        line_count = 0
+        """Organizes the CSV data by initializing the header indexes, verifying that card has necessary information to
+        be imported, and driving the handling of set data for matching cards.
+
+        :param csv_reader: reader (rows) of CSV file containing card data
+        :type csv_reader: _reader
+        :return: imported card data
+        :rtype: List[Card]
+        """
+        card_list: list = []
+        indexes: dict = {}
+        line_count: int = 0
 
         for card_info in csv_reader:
             if line_count == 0:
                 indexes = self.init_indexes(card_info)
-            # TODO throw and log error. Name must be specified for card
-            # TODO throw and log error. File format does not match expected format (name,monster_type,attribute,level,attack,defense,edition,set_number,pass_code,condition,description)
+            elif card_info['name'] is None:
+                logger.error('Name must be specified for card')
             else:
                 card_object = self.define_card_object(indexes, card_info)
                 index_of_existing = self.index_of_existing_data(card_object, card_list)
@@ -159,7 +236,11 @@ class DataImport:
         return card_list
 
     def extract_csv_data(self):
-        # TODO Add config with datafile import location
-        with open('C:/Users/ebyy2/PycharmProjects/CardCollection/data/Yugioh_Catalog_Monster_Full.csv', mode='r') as csv_file:
+        """Loads the CSV file with card information to be imported.
+
+        :return: imported card data
+        :rtype: List[Card]
+        """
+        with open(self._file_location, mode='r') as csv_file:
             csv_reader = csv.reader(csv_file)
-            self.categorize_data(csv_reader)
+            return self.categorize_data(csv_reader)

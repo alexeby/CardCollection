@@ -201,3 +201,7 @@ class TestHandleSetInfo(unittest.TestCase):
                              set_info=[expected_set_info2, expected_set_info1])
 
         self.assertEqual(result_card, expected_card)
+
+
+if __name__ == '__main__':
+    unittest.main()
