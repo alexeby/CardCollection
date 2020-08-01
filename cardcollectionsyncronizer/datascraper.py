@@ -1,7 +1,7 @@
 import bs4
 import requests
 import logging
-from cardcollection.card import Card, SetInfo
+from cardcollectionsyncronizer.card import Card, SetInfo
 from urllib.parse import quote
 import json
 from typing import List

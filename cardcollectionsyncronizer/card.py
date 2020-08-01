@@ -1,6 +1,10 @@
+from typing import List
+
+
 class SetInfo:
 
-    def __init__(self, set_number=None, edition=None, rarity=None, price=None, conditions=None):
+    def __init__(self, set_number: str = None, edition: str = None, rarity: str = None,
+                 price: str = None, conditions: dict = None):
         if conditions is None:
             conditions = {'NM': 0,  # Near Mint: quantity
                           'LP': 0,  # Lightly Played: quantity
@@ -18,19 +22,19 @@ class SetInfo:
             return True
         return False
 
-    def set_set_number(self, set_number):
+    def set_set_number(self, set_number: str):
         self._set_number = set_number
 
-    def set_edition(self, edition):
+    def set_edition(self, edition: str):
         self._edition = edition
 
-    def set_rarity(self, rarity):
+    def set_rarity(self, rarity: str):
         self._rarity = rarity
 
-    def set_price(self, price):
+    def set_price(self, price: str):
         self._price = price
 
-    def set_conditions(self, condition):
+    def set_conditions(self, condition: dict):
         self._conditions = condition
 
     def get_set_number(self):
@@ -51,11 +55,13 @@ class SetInfo:
 
 class Card:
 
-    def __init__(self, name=None, monster_type=None, attribute=None, level=None, attack=None, defense=None,
-                 pass_code=None, description=None, img_name=None, last_process_date=None, set_info=None):
+    def __init__(self, name: str = None, monster_type: str = None, attribute: str = None, race: str = None,
+                 level: int = None, attack: int = None, defense: int = None, pass_code: int = None,
+                 description: str = None, img_name: str = None, last_process_date: str = None, set_info: List[SetInfo] = None):
         self._name = name
         self._monster_type = monster_type
         self._attribute = attribute
+        self._race = race
         self._level = level
         self._attack = attack
         self._defense = defense
@@ -70,34 +76,40 @@ class Card:
             return True
         return False
 
-    def set_name(self, name):
+    def set_name(self, name: str):
         self._name = name
 
-    def set_monster_type(self, monster_type):
+    def set_monster_type(self, monster_type: str):
         self._monster_type = monster_type
 
-    def set_attribute(self, attribute):
+    def set_attribute(self, attribute: str):
         self._attribute = attribute
 
-    def set_level(self, level):
+    def set_race(self, race: str):
+        self._race = race
+
+    def set_level(self, level: int):
         self._level = level
 
-    def set_attack(self, attack):
+    def set_attack(self, attack: int):
         self._attack = attack
 
-    def set_defense(self, defense):
+    def set_defense(self, defense: int):
         self._defense = defense
 
-    def set_pass_code(self, pass_code):
+    def set_pass_code(self, pass_code: int):
         self._pass_code = pass_code
 
-    def set_description(self, description):
+    def set_description(self, description: str):
         self._description = description
 
-    def set_img_name(self, img_name):
+    def set_set_info(self, set_info: List[SetInfo]):
+        self._set_info = set_info
+
+    def set_img_name(self, img_name: str):
         self._img_name = img_name
 
-    def set_last_process_date(self, last_process_date):
+    def set_last_process_date(self, last_process_date: str):
         self._last_process_date = last_process_date
 
     def get_name(self):
@@ -108,6 +120,9 @@ class Card:
 
     def get_attribute(self):
         return self._attribute
+
+    def get_race(self):
+        return self._race
 
     def get_level(self):
         return self._level
@@ -129,9 +144,6 @@ class Card:
 
     def get_last_process_date(self):
         return self._last_process_date
-
-    def set_set_info(self, set_info):
-        self._set_info = set_info
 
     def get_set_info(self):
         return self._set_info

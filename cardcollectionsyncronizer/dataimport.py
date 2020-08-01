@@ -1,13 +1,13 @@
 import csv
 import logging
-from cardcollection.card import Card, SetInfo
+from cardcollectionsyncronizer.card import Card, SetInfo
 from typing import List
 
 logger = logging.getLogger(__name__)
 
 
 class DataImport:
-    """Used to import data from csv file. CSV columns should be any of the following values: name, monster_type,
+    """Used to import data from csv file. CSV columns should be any of the following values: name, race_type,
     attribute, level, attack, defense, edition, set_number, pass_code, condition, description. The order of these
     columns is not a concern as they will be automatically indexed and put in a dictionary.
     """
@@ -26,7 +26,7 @@ class DataImport:
         """
         iteration = 0
         index_dict = {'name': None,
-                      'monster_type': None,
+                      'race_type': None,
                       'attribute': None,
                       'level': None,
                       'attack': None,
@@ -40,7 +40,7 @@ class DataImport:
 
         for column in header:
             if column == 'name': index_dict['name'] = iteration
-            elif column == 'monster_type': index_dict['monster_type'] = iteration
+            elif column == 'race_type': index_dict['race_type'] = iteration
             elif column == 'attribute': index_dict['attribute'] = iteration
             elif column == 'level': index_dict['level'] = iteration
             elif column == 'attack': index_dict['attack'] = iteration
@@ -58,6 +58,25 @@ class DataImport:
         return index_dict
 
     @staticmethod
+    def get_monster_race_and_type(race_type: str):
+        race_type_list: List[str] = race_type.split('/')
+        result: dict = {'race': None, 'monster_type': None}
+        i = 0
+        for rt in race_type_list:
+            rt = rt.strip()
+            if i == 0:
+                result['race'] = rt
+            else:
+                result['monster_type'] = rt if result['monster_type'] is None else result['monster_type'] + ' ' + rt
+            i += 1
+
+        if result['monster_type'] is None:
+            result['monster_type'] = 'Normal Monster'
+        else:
+            result['monster_type'] += ' Monster'
+        return result
+
+    @staticmethod
     def define_card_object(indexes: dict, card_info: list):
         """Creates card object and sets card attributes from imported information.
 
@@ -72,13 +91,16 @@ class DataImport:
 
         # Align card object information
         if indexes['name'] is not None: card_object.set_name(card_info[indexes['name']])
-        if indexes['monster_type'] is not None: card_object.set_monster_type(card_info[indexes['monster_type']])
         if indexes['attribute'] is not None: card_object.set_attribute(card_info[indexes['attribute']])
-        if indexes['level'] is not None: card_object.set_level(card_info[indexes['level']])
-        if indexes['attack'] is not None: card_object.set_attack(card_info[indexes['attack']])
-        if indexes['defense'] is not None: card_object.set_defense(card_info[indexes['defense']])
+        if indexes['level'] is not None: card_object.set_level(int(card_info[indexes['level']]))
+        if indexes['attack'] is not None: card_object.set_attack(int(card_info[indexes['attack']]))
+        if indexes['defense'] is not None: card_object.set_defense(int(card_info[indexes['defense']]))
         if indexes['pass_code'] is not None: card_object.set_pass_code(card_info[indexes['pass_code']])
         if indexes['description'] is not None: card_object.set_description(card_info[indexes['description']])
+        if indexes['race_type'] is not None:
+            race_types: dict = DataImport.get_monster_race_and_type(card_info[indexes['race_type']])
+            card_object.set_race(race_types.get('race'))
+            card_object.set_monster_type(race_types.get('monster_type'))
 
         # Align card set info with card object. There can be more than one card set per card object
         set_info = SetInfo()
