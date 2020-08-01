@@ -1,12 +1,11 @@
 import unittest
-from cardcollection.datascraper import DataScraper
-from cardcollection.card import Card, SetInfo
+from cardcollectionsyncronizer.datascraper import DataScraper
+from cardcollectionsyncronizer.card import Card, SetInfo
 import time
 
 
 if __name__ == '__main__':
     unittest.main()
-
 
 
 class TestGetExternalCardData(unittest.TestCase):
@@ -31,7 +30,7 @@ class TestValidateAndAppendCardData(unittest.TestCase):
         set_info1: SetInfo = SetInfo(set_number='STON-ENSE1', edition='LE')
         set_info2: SetInfo = SetInfo(set_number='DP04-EN012', edition='FE')
         test_card: Card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                               level=10, attack='4000', defense='2800')
+                               level=10, attack=4000, defense=2800)
         test_card.set_set_info([set_info1, set_info2])
         external_data: dict = DataScraper.get_external_card_data(test_card.get_name())
         result_card = DataScraper.validate_and_append_card_data(test_card, external_data)

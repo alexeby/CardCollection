@@ -1,8 +1,12 @@
 import unittest
-from cardcollection.dataimport import DataImport
-from cardcollection.card import SetInfo
-from cardcollection.card import Card
+from cardcollectionsyncronizer.dataimport import DataImport
+from cardcollectionsyncronizer.card import SetInfo
+from cardcollectionsyncronizer.card import Card
 from typing import List
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 class TestGetKeyFromValue(unittest.TestCase):
@@ -84,124 +88,131 @@ class TestDoSetsMatch(unittest.TestCase):
 class TestInitIndexes(unittest.TestCase):
 
     def test_init_indexes(self):
-        header = ['name', 'monster_type', 'attribute', 'level', 'attack', 'defense', 'pass_code',
+        header = ['name', 'race_type', 'attribute', 'level', 'attack', 'defense', 'pass_code',
                   'description', 'set_number', 'edition', 'rarity', 'condition']
         result = DataImport.init_indexes(header)
         self.assertEqual(result.get('attack'), 4)
         self.assertEqual(result.get('edition'), 9)
 
     def test_init_indexes_not_registered(self):
-        header = ['name', 'monster_type', 'attributes', 'level', 'attack', 'defense', 'pass_code',
+        header = ['name', 'race_type', 'attributes', 'level', 'attack', 'defense', 'pass_code',
                   'description', 'set_number', 'edition', 'rarity', 'condition']
         result = DataImport.init_indexes(header)
         self.assertEqual(result.get('attributes'), None)
         self.assertEqual(result.get('rarity'), 10)
 
 
+class TestGetMonsterRaceAndType(unittest.TestCase):
+
+    def test_race_and_type(self):
+        race_type = 'Machine / Effect'
+
+        result = DataImport.get_monster_race_and_type(race_type)
+        expected_result: dict = {'race': 'Machine', 'monster_type': 'Effect Monster'}
+        self.assertEqual(result, expected_result)
+
+    def test_race_and_multiple_types(self):
+        race_type = 'Machine / Union / Effect'
+
+        result = DataImport.get_monster_race_and_type(race_type)
+        expected_result: dict = {'race': 'Machine', 'monster_type': 'Union Effect Monster'}
+        self.assertEqual(result, expected_result)
+
+    def test_race_and_no_type(self):
+        race_type = 'Machine'
+
+        result = DataImport.get_monster_race_and_type(race_type)
+        expected_result: dict = {'race': 'Machine', 'monster_type': 'Normal Monster'}
+        self.assertEqual(result, expected_result)
+
+
 class TestDefineCardObject(unittest.TestCase):
 
     def test_define_card_object(self):
-        header = ['name', 'monster_type', 'attribute', 'level', 'attack', 'defense', 'edition',
+        header = ['name', 'race_type', 'attribute', 'level', 'attack', 'defense', 'edition',
                   'set_number', 'pass_code', 'condition']
         indexes = DataImport.init_indexes(header)
-        card_info = ['Blue-Eyes White Dragon', 'Dragon', 'Light', 8, '3000', '2500', None,
-                     'SDK-001', '89631139', 'LP']
+        card_info = ['Blue-Eyes White Dragon', 'Dragon', 'Light', 8, 3000, 2500, None,
+                     'SDK-001', 89631139, 'LP']
 
         card_object = DataImport.define_card_object(indexes, card_info)
         predefined_set_object = SetInfo(set_number='SDK-001', conditions={'NM': 0, 'LP': 1, 'MP': 0, 'HP': 0, 'D': 0})
-        predefined_card_object = Card(name='Blue-Eyes White Dragon', monster_type='Dragon', attribute='Light',
-                                      level=8, attack='3000', defense='2500', pass_code='89631139',
+        predefined_card_object = Card(name='Blue-Eyes White Dragon', race='Dragon', monster_type='Normal Monster', attribute='Light',
+                                      level=8, attack=3000, defense=2500, pass_code=89631139,
                                       set_info=[predefined_set_object])
         self.assertEqual(card_object, predefined_card_object)
 
 
 class TestHandleSetInfo(unittest.TestCase):
+    _test_set_info = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
+                             edition='LE')
+    _test_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
+                      level=10, attack=4000, defense=2800, pass_code=1546123,
+                      set_info=[_test_set_info])
 
     def test_different_sets(self):
-        new_set_info = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
-                               edition='LE')
-        new_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[new_set_info])
-        existing_set_info = SetInfo(set_number='DP04-EN012', conditions={'NM': 1, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
-                                    edition='FE')
-        existing_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[existing_set_info])
+        test_hsi = TestHandleSetInfo
 
-        result_card = DataImport.handle_set_info(new_card, existing_card)
+        test_set_info2 = test_hsi._test_set_info
+        test_set_info2.set_edition('FE')
+        test_card2 = test_hsi._test_card
+        test_card2.set_set_info([test_set_info2])
 
-        expected_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[existing_set_info, new_set_info])
+        result_card = DataImport.handle_set_info(test_hsi._test_card, test_card2)
+
+        expected_card = test_hsi._test_card
+        expected_card.set_set_info([test_set_info2, test_hsi._test_set_info])
 
         self.assertEqual(result_card, expected_card)
 
     def test_same_sets(self):
-        set_info = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
-                           edition='LE')
-        card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[set_info])
+        test_hsi = TestHandleSetInfo
+        result_card = DataImport.handle_set_info(test_hsi._test_card, test_hsi._test_card)
 
-        result_card = DataImport.handle_set_info(card, card)
-
-        expected_set_info = SetInfo(set_number='STON-ENSE1', conditions={'NM': 2, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
-                                    edition='LE')
-        expected_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[expected_set_info])
+        expected_set_info = test_hsi._test_set_info
+        expected_set_info.set_conditions({'NM': 2, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0})
+        expected_card = test_hsi._test_card
+        expected_card.set_set_info([expected_set_info])
 
         self.assertEqual(result_card, expected_card)
 
     def test_similar_sets(self):
-        set_info1 = SetInfo(set_number='STON-ENSE1', conditions={'NM': 0, 'LP': 0, 'MP': 0, 'HP': 1, 'D': 0},
-                            edition='LE')
-        card1 = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[set_info1])
+        test_hsi = TestHandleSetInfo
 
-        set_info2 = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 1, 'MP': 0, 'HP': 0, 'D': 0},
-                           edition='LE')
-        card2 = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                    level=10, attack='4000', defense='2800', pass_code='1546123',
-                    set_info=[set_info2])
+        set_info1 = test_hsi._test_set_info
+        set_info1.set_conditions({'NM': 0, 'LP': 0, 'MP': 0, 'HP': 1, 'D': 0})
+        card1 = test_hsi._test_card
+        card1.set_set_info([set_info1])
+
+        set_info2 = test_hsi._test_set_info
+        set_info2.set_conditions({'NM': 1, 'LP': 1, 'MP': 0, 'HP': 0, 'D': 0})
+        card2 = test_hsi._test_card
+        card2.set_set_info([set_info2])
 
         result_card = DataImport.handle_set_info(card1, card2)
 
-        expected_set_info = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 1, 'MP': 0, 'HP': 1, 'D': 0},
-                                    edition='LE')
-        expected_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                                      level=10, attack='4000', defense='2800', pass_code='1546123',
-                                      set_info=[expected_set_info])
+        expected_set_info = test_hsi._test_set_info
+        expected_set_info.set_conditions({'NM': 1, 'LP': 1, 'MP': 0, 'HP': 1, 'D': 0})
+        expected_card = test_hsi._test_card
+        expected_card.set_set_info([expected_set_info])
 
         self.assertEqual(result_card, expected_card)
 
     def test_same_set_different_editions(self):
-        set_info1 = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
-                           edition='LE')
-        card1 = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                    level=10, attack='4000', defense='2800', pass_code='1546123',
-                    set_info=[set_info1])
+        test_hsi = TestHandleSetInfo
+        set_info1 = test_hsi._test_set_info
+        card1 = test_hsi._test_card
 
-        set_info2 = SetInfo(set_number='STON-ENSE1', conditions={'NM': 0, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 1},
-                           edition=None)
-        card2 = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                    level=10, attack='4000', defense='2800', pass_code='1546123',
-                    set_info=[set_info2])
+        set_info2 = test_hsi._test_set_info
+        set_info2.set_conditions({'NM': 0, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 1})
+        set_info2.set_edition(None)
+
+        card2 = test_hsi._test_card
+        card2.set_set_info([set_info2])
 
         result_card = DataImport.handle_set_info(card1, card2)
 
-        expected_set_info1 = SetInfo(set_number='STON-ENSE1', conditions={'NM': 1, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 0},
-                                    edition='LE')
-        expected_set_info2 = SetInfo(set_number='STON-ENSE1', conditions={'NM': 0, 'LP': 0, 'MP': 0, 'HP': 0, 'D': 1},
-                                     edition=None)
-        expected_card = Card(name='Cyber End Dragon', monster_type='Machine / Fusion / Effect', attribute='Light',
-                             level=10, attack='4000', defense='2800', pass_code='1546123',
-                             set_info=[expected_set_info2, expected_set_info1])
+        expected_card = test_hsi._test_card
+        expected_card.set_set_info([set_info2, set_info1])
 
         self.assertEqual(result_card, expected_card)
-
-
-if __name__ == '__main__':
-    unittest.main()
