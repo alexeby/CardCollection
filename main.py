@@ -2,7 +2,7 @@ import logging
 import os
 import configparser
 from logging import config
-from cardcollectionsyncronizer.dataimport import DataImport
+from carddatahandler.dataimporter import DataImport
 
 # Initialize the log configuration file
 logging.config.fileConfig(fname='init/log.ini', disable_existing_loggers=False)
@@ -19,8 +19,8 @@ PATH_DATA_FILES = parser.get('Paths', 'data_dir')
 
 # Initialize DataImporter
 
-# Initialize DataScraper
-DS_CARD_SEARCH_SITE_API = parser.get('Data_Scraper', 'card_search_site_api')
+# Initialize WebHandler
+DS_CARD_SEARCH_SITE_API = parser.get('Web_Handler', 'card_search_site_api')
 
 logger.info('DS_CARD_SEARCH_SITE_API: ' + DS_CARD_SEARCH_SITE_API)
 logger.info('PATH_IMG_DOWNLOAD: ' + PATH_IMG_DOWNLOAD)
@@ -35,6 +35,14 @@ except OSError as e:
 
 
 def main():
+    print("1. Import Data")
+    print("2. Search")
+    print("3. Cancel")
+    value = input("What would you like to do?")
+    if value == 1:
+        DataImport.import_data('test/test_data/Test_Yugioh_Catalog_Monster_Full.csv')
+    elif value == 2:
+        pass
     pass
 
 
