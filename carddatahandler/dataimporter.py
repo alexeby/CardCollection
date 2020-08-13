@@ -2,6 +2,7 @@ import csv
 import logging
 from carddatahandler.card import Card, SetInfo
 from carddatahandler.webhandler import WebHandler
+from carddatahandler.databasehandler import DatabaseHandler
 from typing import List
 import time
 
@@ -14,8 +15,8 @@ class DataImport:
     columns is not a concern as they will be automatically indexed and put in a dictionary.
     """
 
-    def __init__(self, file_location=None):
-        self._file_location = file_location
+    def __init__(self):
+        pass
 
     # --------- Validate card data with Yu-Gi-Oh! API ---------
     @staticmethod
@@ -70,7 +71,7 @@ class DataImport:
         card: Card
         for card in card_list:
             card_name = card.get_name()
-            card_data: dict = WebHandler.get_external_card_data(card_name)
+            card_data: dict = WebHandler.get_external_card_data_by_name(card_name)
             card = DataImport.validate_and_append_card_data(card, card_data)
             card_list[i] = card
             i = i + 1
@@ -322,12 +323,19 @@ class DataImport:
 
         return card_list
 
-    def extract_csv_data(self):
+    @staticmethod
+    def extract_csv_data(file_location: str):
         """Loads the CSV file with card information to be imported.
 
         :return: imported card data
         :rtype: List[Card]
         """
-        with open(self._file_location, mode='r') as csv_file:
+        with open(file_location, mode='r') as csv_file:
             csv_reader = csv.reader(csv_file)
-            return self.categorize_data(csv_reader)
+            return DataImport.categorize_data(csv_reader)
+
+    @staticmethod
+    def import_data(file_location: str):
+        cards: List[Card] = DataImport.extract_csv_data(file_location)
+        records = DatabaseHandler.convert_cards_to_dicts(cards)
+        DatabaseHandler.persist_multiple_records_to_collection(records)
