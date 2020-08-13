@@ -1,0 +1,25 @@
+name,race_type,attribute,level,attack,defense,edition,set_number,pass_code,condition
+"Uria, Lord of Searing Flames",Pyro / Effect,Fire,10,0,0,LE,CT03-EN005,6007213,HP
+"Raviel, Lord of Phantasms",Fiend / Effect,Dark,10,4000,4000,LE,CT03-EN003,69890967,LP
+"Hamon, Lord of Striking Thunder",Thunder / Effect,Light,10,4000,4000,LE,CT03-EN006,32491822,LP
+Spiral Serpant,Sea Serpent,Water,8,2900,2900,,STON-EN003,32626733,LP
+Kuriboh,Fiend / Effect,Dark,1,300,200,,SYE-019,40640057,D
+Black Luster Soldier,Warrior / Ritual,Earth,8,3000,2500,,SYE-024,,LP
+Dark Paladin,Spellcaster / Fushion / Effect,Dark,8,2900,2400,LE,DMG-001,98502113,LP
+Dark Magician,Spellcaster,Dark,7,2500,2100,,SYE-001,46986414,LP
+Cyberdark Dragon,Machine / Fusion / Effect,Dark,8,1000,1000,FE,CDIP-EN035,40418351,NM
+Dragon Master Knight,Dragon / Fusion / Effect,Light,12,5000,5000,LE,UE02-EN001,62873545,NM
+Cyber Laser Dragon,Machine / Effect,Light,7,2400,1800,FE,SOI-EN007,4162088,LP
+Proto-Cyber Dragon,Machine / Effect,Light,3,1100,600,FE,DP04-EN004,26439287,NM
+Cyber Ogre,Machine / Effect,Earth,5,1900,1200,FE,CDIP-EN004,64268668,NM
+Cyber Dragon,Machine / Effect,Light,5,2100,1600,LE,CT03-EN002,70095154,NM
+Cyber End Dragon,Machine / Fusion / Effect,Light,10,4000,2800,LE,STON-ENSE1,1546123,NM
+Cyber End Dragon,Machine / Fusion / Effect,Light,10,4000,2800,FE,DP04-EN012,1546123,NM
+Blue-Eyes White Dragon,Dragon,Light,8,3000,2500,,SDK-001,89631139,LP
+Majestic Mech - Goryu,Fairy / Effect,Light,8,2900,1800,,EOJ-EN016,95701283,LP
+Dark Catapulter,Machine / Effect,Earth,4,1000,1500,,CRV-EN013,33875961,NM
+King Dragon,Dragon / Fusion / Effect,Dark,7,2400,1100,FE,DR3-EN156,13756293,NM
+Queen's Knight,Warrior,Light,4,1500,1600,,EEN-EN004,25652259,NM
+Divine Dragon - Excelion,Dragon / Effect,Light,5,1500,900,,SOI-EN033,10032958,NM
+Winged Kuriboh,Fairy / Effect,Light,1,300,200,FE,DP1-EN005,57116033,MP
+Time Wizard,Spellcaster / Effect,Light,2,500,400,,SDJ-015,71625222,MP

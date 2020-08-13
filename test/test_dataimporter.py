@@ -1,5 +1,5 @@
 import unittest
-from carddatahandler.dataimport import DataImport
+from carddatahandler.dataimporter import DataImport
 from carddatahandler.card import SetInfo
 from carddatahandler.card import Card
 from typing import List
