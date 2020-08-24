@@ -1,10 +1,12 @@
 import csv
 import logging
-from carddatahandler.card import Card, SetInfo
-from carddatahandler.webhandler import WebHandler
-from carddatahandler.databasehandler import DatabaseHandler
-from typing import List
 import time
+from typing import List
+
+from carddatahandler import DATA_IMPORTER_PROPERTIES, PATHS_PROPERTIES
+from carddatahandler.card import Card, SetInfo
+from carddatahandler.databasehandler import DatabaseHandler
+from carddatahandler.webhandler import WebHandler
 
 logger = logging.getLogger(__name__)
 
@@ -21,37 +23,55 @@ class DataImport:
     # --------- Validate card data with Yu-Gi-Oh! API ---------
     @staticmethod
     def handle_set_data(external_card_sets: List[dict], card_sets: List[SetInfo]):
+        # TODO documentation
+        # TODO testing
         card_set: SetInfo
         for card_set in card_sets:
             external_card_set: dict
             for external_card_set in external_card_sets:
-                if card_set.get_set_number() == external_card_set.get('set_code'):
-                    card_set.set_price(
-                        DataImport.use_populated_data(card_set.get_price(), external_card_set.get('set_price')))
-                    card_set.set_rarity(
-                        DataImport.use_populated_data(card_set.get_rarity(), external_card_set.get('set_rarity')))
+                if card_set.get_set_number() == external_card_set.get('set_code')\
+                        and (True if card_set.get_rarity() is None else card_set.get_rarity() == external_card_set.get('rarity')):
+                    card_set.set_price(DataImport.use_populated_data(card_set.get_price(), external_card_set.get('set_price')))
+                    card_set.set_rarity(DataImport.use_populated_data(card_set.get_rarity(), external_card_set.get('set_rarity')))
 
         return card_sets
 
     @staticmethod
+    def handle_img_data(pass_code: int, external_img_data: List[dict]):
+        # TODO documentation
+        # TODO testing
+        for img_data in external_img_data:
+            if pass_code is None:
+                return img_data.get('image_url')
+            elif int(pass_code) == img_data.get('id'):
+                return img_data.get('image_url')
+
+    @staticmethod
     def use_populated_data(card_object_data, card_external_data):
+        # TODO documentation
+        # TODO testing
         if card_object_data == card_external_data:
             # Card data equals, no need to validate
             return card_object_data
-        if card_object_data != card_external_data:
-            if card_object_data is None:
+        elif card_object_data != card_external_data:
+            if isinstance(card_object_data, str) and isinstance(card_external_data,str):
+                if card_object_data.upper() == card_external_data.upper():
+                    return card_object_data
+            elif card_object_data is None:
                 # Card object is not populated, but external data is
                 return card_external_data
             elif card_external_data is None:
                 # External data is not populated, but card object is
                 return card_object_data
             # Always use card data from csv, and log to verify the discrepancy
-            logger.warning(card_object_data + ' is not ' + card_external_data)
+            logger.warning(str(card_object_data) + ' is not ' + str(card_external_data))
             return card_object_data
         return None
 
     @staticmethod
     def validate_and_append_card_data(card: Card, card_data: dict):
+        # TODO documentation
+        # TODO testing
         card.set_name(DataImport.use_populated_data(card.get_name(), card_data.get('name')))
         card.set_level(DataImport.use_populated_data(card.get_level(), card_data.get('level')))
         card.set_attack(DataImport.use_populated_data(card.get_attack(), card_data.get('atk')))
@@ -63,16 +83,28 @@ class DataImport:
         set_info: List[SetInfo] = DataImport.handle_set_data(card_data.get('card_sets'), card.get_set_info())
         card.set_set_info(set_info)
 
+        img_url: str = DataImport.handle_img_data(card.get_pass_code(), card_data.get('card_images'))
+        img_url_split: List[str] = img_url.split('/')
+        img_name: str = img_url_split[len(img_url_split)-1]
+        WebHandler.download_img(img_url, img_name)
+        card.set_img_name(img_name)
+
         return card
 
     @staticmethod
     def execute_validation(card_list: List[Card]):
+        # TODO documentation
+        # TODO testing
         i: int = 0
         card: Card
         for card in card_list:
+            logger.info('Now validating import for ' + card.get_name())
             card_name = card.get_name()
             card_data: dict = WebHandler.get_external_card_data_by_name(card_name)
-            card = DataImport.validate_and_append_card_data(card, card_data)
+            if card_data is not None:
+                card = DataImport.validate_and_append_card_data(card, card_data)
+            else:
+                logger.error('No data found for ' + card.get_name())
             card_list[i] = card
             i = i + 1
             time.sleep(1)
@@ -155,6 +187,10 @@ class DataImport:
         """
         card_object = Card()
 
+        # Replace empty strings with None type
+        convert = lambda i: i or None
+        card_info = [convert(i) for i in card_info]
+
         # Align card object information
         if indexes['name'] is not None: card_object.set_name(card_info[indexes['name']])
         if indexes['attribute'] is not None: card_object.set_attribute(card_info[indexes['attribute']])
@@ -172,6 +208,7 @@ class DataImport:
         set_info = SetInfo()
         if indexes['set_number'] is not None: set_info.set_set_number(card_info[indexes['set_number']])
         if indexes['edition'] is not None: set_info.set_edition(card_info[indexes['edition']])
+        if indexes['rarity'] is not None: set_info.set_rarity(card_info[indexes['rarity']])
 
         # Conditions are handled a bit differently. They are stored in dictionary and are used to determine quantity
         new_condition = card_info[indexes['condition']]
@@ -245,7 +282,8 @@ class DataImport:
         """
         match = False
         if set1.get_set_number() == set2.get_set_number() \
-                and set1.get_edition() == set2.get_edition():
+                and set1.get_edition() == set2.get_edition() \
+                and set1.get_rarity() == set2.get_rarity():
             match = True
 
         return match
@@ -287,7 +325,8 @@ class DataImport:
         existing_card.set_set_info(existing_sets)
         return existing_card
 
-    def categorize_data(self, csv_reader):
+    @staticmethod
+    def categorize_data(csv_reader):
         """Organizes the CSV data by initializing the header indexes, verifying that card has necessary information to
         be imported, and driving the handling of set data for matching cards.
 
@@ -302,19 +341,19 @@ class DataImport:
 
         for card_info in csv_reader:
             if line_count == 0:
-                indexes = self.init_indexes(card_info)
-            elif card_info['name'] is None:
+                indexes = DataImport.init_indexes(card_info)
+            elif card_info[indexes.get('name')] is None:
                 logger.error('Name must be specified for card')
             else:
-                card_object = self.define_card_object(indexes, card_info)
-                index_of_existing = self.index_of_existing_data(card_object, card_list)
+                card_object = DataImport.define_card_object(indexes, card_info)
+                index_of_existing = DataImport.index_of_existing_data(card_object, card_list)
                 if index_of_existing is None:
                     card_list.append(card_object)
                 else:
                     existing_card_object = card_list[index_of_existing]
                     try:
                         # Don't add duplicate sets
-                        existing_card_object = self.handle_set_info(card_object, existing_card_object)
+                        existing_card_object = DataImport.handle_set_info(card_object, existing_card_object)
                         card_list[index_of_existing] = existing_card_object
                     except IndexError:
                         logger.error('Error occurred with card: ' + card_object.get_name(), IndexError)
@@ -336,6 +375,22 @@ class DataImport:
 
     @staticmethod
     def import_data(file_location: str):
+        # TODO documentation
         cards: List[Card] = DataImport.extract_csv_data(file_location)
+        cards = DataImport.execute_validation(cards)
+        records = DatabaseHandler.convert_cards_to_dicts(cards)
+        DatabaseHandler.persist_multiple_records_to_collection(records)
+
+    @staticmethod
+    def import_all_data():
+        # TODO documentation
+        data_path = PATHS_PROPERTIES.get('data_dir')
+        files_string = DATA_IMPORTER_PROPERTIES.get('data_files')
+        files: List[str] = files_string.split(',')
+        cards = List[Card]
+        for file in files:
+            file_location = data_path + file
+            cards.append(DataImport.extract_csv_data(file_location))
+        cards = DataImport.execute_validation(cards)
         records = DatabaseHandler.convert_cards_to_dicts(cards)
         DatabaseHandler.persist_multiple_records_to_collection(records)
