@@ -1,7 +1,11 @@
 import logging
 import os
-import configparser
+import shutil
 from logging import config
+from typing import List
+
+from carddatahandler import PATHS_PROPERTIES, DATA_IMPORTER_PROPERTIES
+from carddatahandler.databasehandler import DatabaseHandler
 from carddatahandler.dataimporter import DataImport
 
 # Initialize the log configuration file
@@ -9,22 +13,12 @@ logging.config.fileConfig(fname='init/log.ini', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 logger.info('Starting image download process')
 
-# Initialize configuration file
-parser = configparser.ConfigParser()
-parser.read('init/conf.ini')
-
 # Initialize Paths
-PATH_IMG_DOWNLOAD = parser.get('Paths', 'img_download')
-PATH_DATA_FILES = parser.get('Paths', 'data_dir')
+PATH_IMG_DOWNLOAD = PATHS_PROPERTIES.get('img_download_dir')
+DATA_PATH = PATHS_PROPERTIES.get('data_dir')
 
 # Initialize DataImporter
-
-# Initialize WebHandler
-DS_CARD_SEARCH_SITE_API = parser.get('Web_Handler', 'card_search_site_api')
-
-logger.info('DS_CARD_SEARCH_SITE_API: ' + DS_CARD_SEARCH_SITE_API)
-logger.info('PATH_IMG_DOWNLOAD: ' + PATH_IMG_DOWNLOAD)
-logger.info('PATH_DATA_FILES: ' + PATH_DATA_FILES)
+DATA_FILES = DATA_IMPORTER_PROPERTIES.get('data_files')
 
 # Create download directory if not already exists
 try:
@@ -38,11 +32,27 @@ def main():
     print("1. Import Data")
     print("2. Search")
     print("3. Cancel")
-    value = input("What would you like to do?")
-    if value == 1:
-        DataImport.import_data('test/test_data/Test_Yugioh_Catalog_Monster_Full.csv')
-    elif value == 2:
+    value = input("What would you like to do?\n")
+    if value == '1':
+        # Only allow fresh collection to import files.
+        num_records = DatabaseHandler.count_number_records()
+        if num_records == 0:
+            files: List[str] = DATA_FILES.split(',')
+            for file in files:
+                DataImport.import_data(DATA_PATH+file)
+        else:
+            logger.error('Number of records in database is ' + str(num_records) + '. Should be 0 to import files.')
+    elif value == '2':
         pass
+    elif value == '3':
+        pass
+    elif value == 'deletealldata':
+        DatabaseHandler.delete_all_records()
+        try:
+            shutil.rmtree(PATH_IMG_DOWNLOAD)
+            logger.info('Deleted path: ' + PATH_IMG_DOWNLOAD)
+        except OSError as ose:
+            logger.error(ose)
     pass
 
 
