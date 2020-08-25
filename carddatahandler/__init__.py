@@ -12,7 +12,9 @@ PATHS_PROPERTIES = {
 }
 
 DATA_IMPORTER_PROPERTIES = {
-    'data_files': parser.get('Data_Importer', 'data_files')
+    'data_files': parser.get('Data_Importer', 'data_files'),
+    'batch_size': parser.get('Data_Importer', 'batch_size'),
+    'batch_time_delay': parser.get('Data_Importer', 'batch_time_delay')
 }
 
 

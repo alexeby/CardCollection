@@ -10,6 +10,11 @@ from carddatahandler.webhandler import WebHandler
 
 logger = logging.getLogger(__name__)
 
+DATA_PATH = PATHS_PROPERTIES.get('data_dir')
+DATA_FILES = DATA_IMPORTER_PROPERTIES.get('data_files')
+BATCH_SIZE = int(DATA_IMPORTER_PROPERTIES.get('batch_size'))
+BATCH_TIME_DELAY = int(DATA_IMPORTER_PROPERTIES.get('batch_time_delay'))
+
 
 class DataImport:
     """Used to import data from csv file. CSV columns should be any of the following values: name, race_type,
@@ -106,8 +111,9 @@ class DataImport:
             else:
                 logger.error('No data found for ' + card.get_name())
             card_list[i] = card
-            i = i + 1
-            time.sleep(1)
+            i += 1
+            if i % BATCH_SIZE == 0:
+                time.sleep(BATCH_TIME_DELAY)
         return card_list
 
     # -----------------
@@ -384,12 +390,10 @@ class DataImport:
     @staticmethod
     def import_all_data():
         # TODO documentation
-        data_path = PATHS_PROPERTIES.get('data_dir')
-        files_string = DATA_IMPORTER_PROPERTIES.get('data_files')
-        files: List[str] = files_string.split(',')
+        files: List[str] = DATA_FILES.split(',')
         cards = List[Card]
         for file in files:
-            file_location = data_path + file
+            file_location = DATA_PATH + file
             cards.append(DataImport.extract_csv_data(file_location))
         cards = DataImport.execute_validation(cards)
         records = DatabaseHandler.convert_cards_to_dicts(cards)
