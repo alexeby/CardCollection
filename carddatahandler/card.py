@@ -1,4 +1,5 @@
 from typing import List
+from datetime import datetime
 
 
 class SetInfo:
@@ -57,7 +58,7 @@ class Card:
 
     def __init__(self, name: str = None, monster_type: str = None, attribute: str = None, race: str = None,
                  level: int = None, attack: int = None, defense: int = None, pass_code: int = None,
-                 description: str = None, img_name: str = None, last_process_date: str = None, set_info: List[SetInfo] = None):
+                 description: str = None, img_name: str = None, last_process_date: datetime = None, set_info: List[SetInfo] = None):
         self._name = name
         self._monster_type = monster_type
         self._attribute = attribute
@@ -109,7 +110,7 @@ class Card:
     def set_img_name(self, img_name: str):
         self._img_name = img_name
 
-    def set_last_process_date(self, last_process_date: str):
+    def set_last_process_date(self, last_process_date: datetime):
         self._last_process_date = last_process_date
 
     def get_name(self):

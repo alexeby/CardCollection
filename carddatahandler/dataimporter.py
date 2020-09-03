@@ -1,6 +1,7 @@
 import csv
 import logging
 import time
+import datetime
 from typing import List
 
 from carddatahandler import DATA_IMPORTER_PROPERTIES, PATHS_PROPERTIES
@@ -108,6 +109,7 @@ class DataImport:
             card_data: dict = WebHandler.get_external_card_data_by_name(card_name)
             if card_data is not None:
                 card = DataImport.validate_and_append_card_data(card, card_data)
+                card.set_last_process_date(datetime.datetime.now())
             else:
                 logger.error('No data found for ' + card.get_name())
             card_list[i] = card
